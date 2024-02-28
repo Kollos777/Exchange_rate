@@ -38,8 +38,10 @@ async def main(days):
     print(exchange_rates)
 
 if __name__ == "__main__":
-
-    days = int(sys.argv[1]) 
+    try:
+        days = int(sys.argv[1])
+    except IndexError:
+        exit("Enter the number of days")
     if days > 10:
         print("Error: Maximum number of days allowed is 10")
     else:
