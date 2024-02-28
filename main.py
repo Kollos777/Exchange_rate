@@ -20,12 +20,12 @@ class PrivatBankAPI:
             exchange_rate = {
                 date: {
                     'EUR': {
-                        'sale': data['exchangeRate'][0]['saleRateNB'],
-                        'purchase': data['exchangeRate'][0]['purchaseRateNB']
+                        'sale': next(item for item in data['exchangeRate'] if item['currency'] == 'EUR')['saleRate'],
+                        'purchase': next(item for item in data['exchangeRate'] if item['currency'] == 'EUR')['purchaseRate']
                     },
                     'USD': {
-                        'sale': data['exchangeRate'][1]['saleRateNB'],
-                        'purchase': data['exchangeRate'][1]['purchaseRateNB']
+                        'sale': next(item for item in data['exchangeRate'] if item['currency'] == 'USD')['saleRate'],
+                        'purchase': next(item for item in data['exchangeRate'] if item['currency'] == 'USD')['purchaseRate']
                     }
                 }
             }
