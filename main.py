@@ -3,6 +3,7 @@ import aiohttp
 import asyncio
 from datetime import datetime, timedelta
 
+
 class PrivatBankAPI:
     API_URL = 'https://api.privatbank.ua/p24api/exchange_rates?json&date='
 
@@ -31,6 +32,7 @@ class PrivatBankAPI:
             }
             results.append(exchange_rate)
         return results
+
 
 async def main(days):
     pb_api = PrivatBankAPI()
